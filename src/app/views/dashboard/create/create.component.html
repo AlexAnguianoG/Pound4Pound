@@ -1,0 +1,37 @@
+<div class="create">
+    <div class="create-header">
+        <strong>Create</strong>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+            <input class="form-control" type="hidden" Name="ID"  formControlName="ID">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="case">Case</label>
+                        <input class="form-control" type="text" placeholder="Case" Name="Case"  formControlName="Case">&nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="GoogleFile">Google File</label>
+                        <input class="form-control" Name="GoogleFile" placeholder="File" type="text" formControlName="GoogleFile">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="case">Account</label>
+                        <input class="form-control" type="text" placeholder="Account" Name="Account" formControlName="Account">&nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                    <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">Submit</button></div>
+                </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header  titleCard">
+                        Plan Details
+                        <div class="float-right">
+                        <button class="btn btn-primary btn-sm botonL" (click)="logout()">Log Out</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-striped">
+                                <tbody>                            
+                                    <td class="titlePlan">{{case.title}}</td>
+                                    <td>{{case.type}} Plan</td>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <table class="table table-striped col-8">
+                                <tbody>                            
+                                    <td>Calories: </td><td>{{case.calories}}</td>
+                                </tbody>
+                                <!-- <tbody>
+                                    <td *ngIf="Type == 'Fitness'&& BoundRole=='Client'">Recommended Diets for this Fitness Plan:</td>
+                                    <td *ngIf="Type == 'Diet'&& BoundRole=='Client'">Recommended Fitness Plans for this Diet:</td>
+                                    </tbody>   -->
+                                <tbody>
+                                    <td *ngIf="Type == 'Diet'">Breakfast:</td>
+                                    <td *ngIf="Type == 'Fitness'">Workout 1:</td>
+                                    <td>{{case.Text1}}</td>
+                                </tbody>
+                                <tbody>
+                                    <td *ngIf="Type == 'Diet'">Lunch:</td>
+                                    <td *ngIf="Type == 'Fitness'">Workout 2:</td>
+                                    <td>{{case.Text2}}</td>
+                                </tbody>
+                                <tbody>
+                                    <td *ngIf="Type == 'Diet'">Dinner:</td>
+                                    <td *ngIf="Type == 'Fitness'">Workout 3:</td>
+                                    <td>{{case.Text3}}</td>
+                                </tbody>
+                            </table>
+                            <div class="col-4"><img class="imgPlans" width="500px" src="assets/img/{{case.imgLink}}.jpg" /></div>
+                        </div>
+                        <button class="btn btn-primary btn-sm" (click)="approve()" *ngIf="nutriologistFlag">Approve Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

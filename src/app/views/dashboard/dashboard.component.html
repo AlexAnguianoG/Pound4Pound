@@ -1,0 +1,48 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header titleCard">
+                    <!--i class="fa fa-align-justify"></i-->Plans
+                    <div class="float-right">
+                    <button class="btn btn-primary btn-sm botonL" (click)="logout()">Log Out</button>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="containerCard">
+                        <div class="items" (click)="FitnessPlans()">
+                            <div class="icon-wrapper">
+                            <i class="fa fa-bolt"></i>
+                            </div>
+                            <div class="project-name">
+                            <p>Fitness Plans (Exercise)</p>
+                            </div>
+                        </div>
+                        <div class="items " (click)="DietPlans()">
+                            <div class="icon-wrapper">
+                            <i class="fa fa-cutlery"></i>
+                            </div>
+                            <div class="project-name">
+                            <p>Diet Plans (Nutrition)</p>
+                            </div>
+                        </div>
+                        <div class="items" (click)="Stats()">
+                            <div class="icon-wrapper">
+                            <i class="fa fa-globe"></i>
+                            </div>
+                            <div class="project-name">
+                            <p>Donation Stats</p>
+                            </div>
+                        </div>  
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    {{files}}
+</div>

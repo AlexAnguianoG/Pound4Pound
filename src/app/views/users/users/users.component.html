@@ -1,0 +1,142 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    Users
+                    <div class="float-right">
+                      <button class="btn btn-primary btn-sm" (click)="logout()">Log Out</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <!--th>Customer Logo</th-->
+                                <!--<th>Password</th>-->
+                                <th>Role</th>
+                                <th>Edit</th>
+                                <th>Deactivate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of allUsers">
+                                <td>{{item.Username}}</td>
+                                <td>{{item.Email}}</td>
+                                <!--td></td-->
+                                 <!--<td>{{item.Password}}</td>-->
+                                <td>{{item.Role}}</td>
+                                <td><button class="btn btn-default" type="button"(click)="loadUserToEdit(item.id, item.Username, item.Password, item.Email, item.role);empty=false">Edit</button> </td>
+                                <td><button class="btn btn-default">Deactivate</button> </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                        <button class="btn btn-block btn-primary" type="button" (click)="registerFlag = true; userIdToUpdate = null; empty=false" >Add User</button>
+                        <button class="btn btn-block btn-primary" type="button" (click)="cases()" >Cases</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    {{files}}
+</div>
+<div class="row" *ngIf="registerFlag">
+    <div class="col-md-6 mx-auto">
+      <div class="card mx-4">
+        <div class="card-body p-4">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <h1>Register</h1>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
+              </div>
+              <input type="text" class="form-control" Name="Username"  formControlName="Username" placeholder="Username" autocomplete="username" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control" Name="Email"  formControlName="Email" placeholder="Email" autocomplete="email" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input type="password" class="form-control" Name="Password"  formControlName="Password" placeholder="Password" autocomplete="new-password" required>
+            </div>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input type="password" class="form-control" Name="PasswordRepeat"  formControlName="PasswordRepeat" placeholder="Repeat password" autocomplete="new-password" required>
+            </div>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
+              </div>
+              <select name="Roles" class="form-control" formControlName="Role" placeholder="Role" autocomplete="Role" required>
+                <option value="Administrator">Administrator</option>
+                <option value="Sales">Sales</option>
+                <option value="Client">Client</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-block btn-success" button type="submit">Register User</button>
+          </form>
+        </div>
+        <div class="alert alert-warning" *ngIf="empty" >
+          All fields are required
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="userIdToUpdate">
+    <div class="col-md-6 mx-auto">
+      <div class="card mx-4">
+        <div class="card-body p-4">
+          <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+            <h1>Update</h1>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
+              </div>
+              <input type="text" class="form-control" Name="Username"  formControlName="Username" placeholder="Username" autocomplete="username" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control" Name="Email"  formControlName="Email" placeholder="Email" autocomplete="email" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input type="password" class="form-control" Name="Password"  formControlName="Password" placeholder="Password" autocomplete="new-password" required>
+            </div>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+              <!--input type="text" class="form-control" Name="Role"  formControlName="Role" placeholder="Role" autocomplete="Role" required>-->
+              <select name="Roles" class="form-control" formControlName="Role" placeholder="Role" autocomplete="Role" required>
+                <option value="Administrator">Administrator</option>
+                <option value="Sales">Sales</option>
+                <option value="Client">Client</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-block btn-success" button type="submit">Update Account</button>
+          </form>
+        </div>
+        <div class="alert alert-warning" *ngIf="empty" >
+          All fields are required
+     </div>
+      </div>
+    </div>
+  </div>
